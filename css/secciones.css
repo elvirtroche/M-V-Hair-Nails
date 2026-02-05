@@ -1,12 +1,13 @@
-/* --- 1. CONFIGURACIÓN DE FONDO --- */
+/* --- 1. CONFIGURACIÓN GLOBAL --- */
 body {
     background-color: #f9f9f9;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
+    overflow-x: hidden;
 }
 
-/* --- 2. TÍTULOS DORADOS UNIFICADOS (Centrado Garantizado) --- */
+/* --- 2. TÍTULOS DORADOS --- */
 .titulo-dorado, 
 #hero h2, #precios h2, #servicios h2, #horarios h3, #ubicacion h2, #ubicacion h3 {
     text-align: center;
@@ -21,7 +22,6 @@ body {
     display: block;
 }
 
-/* Línea decorativa debajo de los títulos principales */
 .titulo-dorado::after, #precios h2::after, #horarios h3::after, #ubicacion h2::after {
     content: '';
     display: block;
@@ -32,23 +32,22 @@ body {
     border-radius: 2px;
 }
 
-/* --- 3. SECCIÓN HERO --- */
+/* --- 3. SECCIONES PRINCIPALES (Hero y Servicios) --- */
 #hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px 5% 30px; /* Reducido de 60px a 10px arriba */
+    padding: 40px 5%;
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* --- 4. SERVICIOS (TARJETAS GRANDES) --- */
 #servicios {
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 20px 5% 60px;
-    margin-top: -40px; 
+    margin-top: 20px; 
     flex-wrap: wrap;
 }
 
@@ -60,39 +59,31 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     max-width: 380px;
 }
 
-.servicio-card:hover {
-    transform: translateY(-10px);
-}
-
 .circulo-img {
-    width: 250px; /* Tamaño grande solicitado */
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #d4af37;
     background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .circulo-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* --- 5. LISTA DE PRECIOS --- */
+/* --- 4. LISTA DE PRECIOS --- */
 .contenedor-precios {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     padding: 20px;
     max-width: 1000px;
@@ -101,12 +92,19 @@ body {
 
 .categoria-servicio {
     flex: 1;
-    min-width: 300px;
-    max-width: 450px;
+    min-width: 280px;
     background: white;
     padding: 25px;
     border-radius: 20px;
     border: 1px solid rgba(212, 175, 55, 0.2);
+    text-align: center; /* Centrado unificado */
+}
+
+.categoria-servicio ul {
+    padding: 0;
+    list-style: none;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .categoria-servicio li {
@@ -116,12 +114,12 @@ body {
     border-bottom: 1px dashed #e1bee7;
 }
 
-/* --- 6. HORARIOS --- */
+/* --- 5. HORARIOS --- */
 .horarios-container {
-    margin: 40px auto;
-    max-width: 500px;
+    margin: 30px auto;
+    max-width: 450px;
     background: #ffffff;
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
@@ -129,44 +127,31 @@ body {
 .fila-horario {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* --- 7. UBICACIÓN Y MAPA --- */
-#ubicacion p { 
-    text-align: center; 
-    color: #666; 
-    margin-bottom: 20px; 
+.fila-horario:last-child {
+    border-bottom: none;
 }
 
-.mapa-contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 1px solid #d4af37;
-}
-
-.mapa-contenedor iframe { 
-    display: block; 
-    width: 100%;
-}
-
-/* --- 8. FRANJA DE PROMOCIONES (Header) --- */
+/* --- 6. FRANJA DE PROMOCIONES --- */
 .franja-promos {
-    background-color: var(--negro-profundo); /* El color negro que ya usas */
-    padding: 10px 0; /* Ajusta el grosor de la franja */
-    margin-top: 0;   /* Esto elimina el espacio hacia arriba */
+    background-color: #000000;
+    padding: 10px 0;
     width: 100%;
-    border-top: 1px solid var(--dorado-primario); /* Opcional: una línea dorada arriba */
-    border-bottom: 1px solid var(--dorado-primario);
+    border-top: 1px solid #d4af37;
+    border-bottom: 1px solid #d4af37;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
 }
 
 .marquee {
     display: inline-block;
-    animation: desplazamiento 35s linear infinite; /* Subimos a 25s para que sea más lento y elegante */
+    white-space: nowrap;
+    color: #fff;
+    animation: desplazamiento 35s linear infinite;
 }
 
 @keyframes desplazamiento {
@@ -174,19 +159,63 @@ body {
     to { transform: translateX(-100%); }
 }
 
-/* --- 9. WHATSAPP --- */
+/* --- 7. WHATSAPP --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     display: flex;
     align-items: center;
     background-color: #25d366;
     color: white !important;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 50px;
-    text-decoration: none !important;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 9999;
+    text-decoration: none;
+}
+
+/* --- 8. RESPONSIVE (MEDIA QUERIES UNIFICADAS) --- */
+
+/* Celulares */
+@media (max-width: 768px) {
+    header {
+        padding-top: 70px !important;
+    }
+    
+    .logo-marca {
+        max-width: 150px !important;
+    }
+
+    .titulo-dorado {
+        font-size: 1.5rem;
+    }
+
+    .circulo-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .whatsapp-text {
+        display: none;
+    }
+
+    .contenedor-precios, .horarios-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .franja-promos {
+        padding: 5px 0;
+        font-size: 12px;
+    }
+}
+
+/* Notebooks / Desktop */
+@media (min-width: 769px) {
+    header {
+        padding: 20px 0;
+    }
+    .logo-marca {
+        max-width: 250px;
+    }
 }
