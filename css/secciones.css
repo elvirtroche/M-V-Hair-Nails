@@ -14,7 +14,8 @@ body {
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
     font-weight: 700;
     width: 100%;
     display: block;
@@ -37,7 +38,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 60px 5%;
+    padding: 10px 5% 30px; /* Reducido de 60px a 10px arriba */
     background: rgba(255, 255, 255, 0.5);
 }
 
@@ -155,14 +156,12 @@ body {
 
 /* --- 8. FRANJA DE PROMOCIONES (Header) --- */
 .franja-promos {
-    background: #000;
-    color: #d4af37;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 12px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-bottom: 1px solid #d4af37;
+    background-color: var(--negro-profundo); /* El color negro que ya usas */
+    padding: 10px 0; /* Ajusta el grosor de la franja */
+    margin-top: 0;   /* Esto elimina el espacio hacia arriba */
+    width: 100%;
+    border-top: 1px solid var(--dorado-primario); /* Opcional: una línea dorada arriba */
+    border-bottom: 1px solid var(--dorado-primario);
 }
 
 .marquee {
